@@ -1,0 +1,23 @@
+{
+    "name": "dm/test",
+    "description": "Test Assignment",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Dmytro Mytianskyi",
+            "email": "dimamytiansky@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "7.4.4",
+        "psr/log": "^1.1"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
+    }
+}

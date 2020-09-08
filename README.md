@@ -1,6 +1,7 @@
 Assume we have a table in CSV format that contains info about people with following fields:
 
 ID - primary key
+
 PARENT_ID - parent of the sequence, initially is not set  
 EMAIL  
 CARD  

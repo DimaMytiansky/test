@@ -1,14 +1,16 @@
-По легенде есть таблица в формате CSV с данными о людях со следующими полями:  
-ID - основной ключ  
-PARENT_ID - глава цепочки, изначально не заполнен.  
+Assume we have a table in CSV format that contains info about people with following fields:
+ID - primary key
+PARENT_ID - parent of the sequence, initially is not set  
 EMAIL  
 CARD  
 PHONE  
-И еще какие-то не интересующие нас в данном случае поля - например логины, ФИО и т.д. Поля могут идти в другом порядке да и вообще формат входных данных может плавать. Для нас важно только то, что нужные нам поля точно есть и они гарантированно заполнены.
+The table can contain more data (name, date of birth etc.), we can just ignore them. The fields that we are interested in are always present and are not empty.
 
-Известно, что в данных есть дубликаты. Дубликатами считается записи, у которых совпадает хотя бы одно из ключевых полей (EMAIL, CARD, PHONE). Дубликаты необходимо выстроить в цепочки дубликатов и в PARENT_ID записать наименьший ID из цепочки.
+Data in the table can have duplicates. Records can be considered duplicates if values of at least one of the fields (EMAIL, CARD, PHONE) are the same.
 
-Пример входящих данных:
+The task is to form a chain of duplicates with PARENT_ID equal to the lowest ID from the chain.
+
+Example of input data:
 
 ID,PARENT_ID,EMAIL,CARD,PHONE,TMP  
 1,NULL,email1,card1,phone1,  
@@ -16,7 +18,7 @@ ID,PARENT_ID,EMAIL,CARD,PHONE,TMP
 3,NULL,email3,card3,phone3,  
 4,NULL,email4,card4,phone2,  
 
-На выходе в записи 1,2,4 мы должны записать PARENT_ID=1 (минимальный ID в цепочке: 1 и 2 имеют общий емайл, а 2 и 4 - телефон) и в третьей строке PARENT_ID=3 (строка без дубля). Пример исходящих данных:  
+Example of output data:
 
 ID,PARENT_ID  
 1,1  
@@ -24,3 +26,4 @@ ID,PARENT_ID
 3,3  
 4,1  
 
+1,2,4 has PARENT_ID=1 (it's the lowest ID in chain: 1 and 2 has common EMAIL, 2 and 4 - common PHONE) and in third row PARENT_ID=3 (has no duplicates).
